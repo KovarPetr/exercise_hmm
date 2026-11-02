@@ -70,6 +70,20 @@ class HMM:
         return (best_c, max_p, sum)
 
 
+    def viterbi(self, x):
+        v = [{} for _ in range(len(x))]
+        back = [{} for _ in range(len(x))]
+        first = True
+        for i in range(len(x)):
+            if first:
+                first = False
+                for key in self.states:
+                    v[i][key] = self.log_pi[key] + self.log_e[x[i]]
+            else:
+
+
+
+
 def log2(p):
     if p == 0:
         return -math.inf
